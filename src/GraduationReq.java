@@ -26,13 +26,16 @@ public class GraduationReq {
 
     void test(long ID) {
         List<Long> block = new ArrayList<Long>();
+        
         for (int i=0;i<size;i++) {
             long travelTime = arr2[i] -arr1[i];
             if (travelTime < 0) 
             	travelTime += Y;
+            
             long startID = mod(arr1[i] + arr3[i]);
 
             long meet = ID - startID;
+        
             if (meet<0) 
             	meet += Y;
             if (meet<=2 * travelTime) {
@@ -51,7 +54,7 @@ public class GraduationReq {
     }
 
     long mod(long X) {
-        return (X % Y + Y) % Y;
+        return (X%Y+Y)%Y;
     }
     void solve(Scanner scan, PrintWriter pw) {
         size = scan.nextInt();
@@ -60,6 +63,7 @@ public class GraduationReq {
         arr1 = new long[size];
         arr2 = new long[size];
         arr3 = new long[size];
+        
         for (int i=0;i<size;i++) {
             arr1[i] = scan.nextLong() - 1;
             arr2[i] = scan.nextLong() - 1;
@@ -69,8 +73,10 @@ public class GraduationReq {
         for (int i=0; i<size; i++) {
             long startID = mod(arr1[i] + arr3[i]);
             long travelTime = arr2[i] - arr1[i];
+            
             if (travelTime < 0) 
             	travelTime += Y;
+            
             long finishTime = arr3[i] + travelTime;
             long finishID = mod(arr2[i] + finishTime);
             for (int delta = -1; delta <= 1; delta++) {
