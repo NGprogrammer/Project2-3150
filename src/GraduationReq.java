@@ -6,11 +6,14 @@
  * Google Code Jam Graduation Requirement
  */
 import java.util.*;
+import java.util.List;
+import java.awt.*;
 import java.io.*;
 import java.math.*;
+import javax.swing.*;
 
-public class GraduationReq {
-	final static String inputFile = "A-small-practice.in";     
+public class GraduationReq {	
+    final static String inputFile = "A-small-practice.in";     
     int size;	
     long X, Y;
     long[] arr1, arr2, arr3;
@@ -89,6 +92,21 @@ public class GraduationReq {
     }
 
     public static void main(String[] args) throws Exception {
+        JFrame frame = new JFrame("Graduation Requirements by Brandon Ng");        
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new BorderLayout());        
+        frame.setSize(600,600);
+        frame.setResizable(false);  
+    	JPanel panel = new JPanel();			
+    	panel.setBackground(Color.BLACK);	
+    	JLabel label = new JLabel();				
+    	label.setForeground(Color.RED);				
+    	label.setFont(new Font("Arial Black",Font.BOLD, 18));
+    	label.setText("Graduation Requirement");	
+    	panel.add(label,BorderLayout.AFTER_LAST_LINE);			
+    	frame.add(panel, BorderLayout.NORTH);	
+    	frame.setVisible(true);        
+    	
         Scanner scan = new Scanner(new FileReader(inputFile)); 
         PrintWriter pw = new PrintWriter(new FileWriter("output.txt")); 
         int cases = scan.nextInt();
